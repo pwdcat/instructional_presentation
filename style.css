@@ -1,0 +1,437 @@
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: .15rem 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+main {
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+section, nav {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+section:last-child, nav:last-child {
+    border-bottom: none;
+}
+
+h2 {
+    color: #333;
+    border-bottom: 2px solid #333;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.concept-section {
+    min-height: 200px;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+footer {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1rem;
+    color: #666;
+    font-size: 0.9em;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+
+input[type="text"], input[type="number"], textarea {
+    padding: 8px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1em;
+}
+
+textarea {
+    width: 95%; 
+    resize: vertical;
+}
+
+
+/* Monty Hall */
+#monty-game {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+#monty-doors {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1.5rem;
+}
+
+.door {
+    width: 100px;
+    height: 150px;
+    background-color: #8B4513;
+    border: 3px solid #5a2d0c;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.door:hover {
+    background-color: #a0522d;
+}
+
+.door.selected {
+    border-color: #ffd700;
+    box-shadow: 0 0 10px #ffd700;
+}
+
+.door.opened {
+    background-color: #eee;
+    color: #333;
+    cursor: default;
+}
+
+.door .content { 
+    position: absolute;
+    font-size: 2.5em;
+    display: none;
+}
+
+.door.opened .content {
+    display: block;
+}
+
+
+#monty-message {
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    min-height: 1.5em;
+}
+
+#monty-controls {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+#monty-stats {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+    font-size: 0.9em;
+}
+
+#monty-stats h4 {
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+#monty-stats p {
+    margin: 0.3rem 0;
+    text-align: center;
+}
+
+/* Tower of Hanoi */
+#hanoi-game {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+#hanoi-controls {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+#hanoi-controls label {
+    margin-right: 5px;
+}
+
+#hanoi-controls input[type="number"] {
+    width: 50px;
+    margin-right: 15px;
+}
+
+#hanoi-moves {
+    margin-left: 15px;
+    font-weight: bold;
+}
+
+#hanoi-towers {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    min-height: 250px;
+    padding: 1rem 0;
+    position: relative;
+}
+
+.peg {
+    width: 30%;
+    height: 220px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    position: relative;
+    border: 2px solid transparent;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.peg-base {
+    width: 100%;
+    height: 10px;
+    background-color: #666;
+    border-radius: 3px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.disk {
+    height: 25px;
+    border-radius: 5px;
+    margin-bottom: 2px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    cursor: grab;
+    text-align: center;
+    color: white;
+    font-size: 0.8em;
+    line-height: 25px;
+    transition: background-color 0.2s, box-shadow 0.3s ease, transform 0.2s ease, opacity 0.2s ease;
+}
+
+.disk:active {
+    cursor: grabbing;
+}
+
+.disk.dragging {
+    opacity: 0.7;
+    z-index: 1000;
+}
+
+
+.disk[data-size="1"] { background-color: #dc3545; width: 15%; }
+.disk[data-size="2"] { background-color: #fd7e14; width: 25%; }
+.disk[data-size="3"] { background-color: #ffc107; width: 35%; }
+.disk[data-size="4"] { background-color: #28a745; width: 45%; }
+.disk[data-size="5"] { background-color: #17a2b8; width: 55%; }
+.disk[data-size="6"] { background-color: #007bff; width: 65%; }
+.disk[data-size="7"] { background-color: #6f42c1; width: 75%; }
+
+.peg.over {
+    border-color: #007bff;
+    background-color: rgba(0, 123, 255, 0.1);
+}
+
+#hanoi-message {
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-top: 1rem;
+    min-height: 1.5em;
+    color: #dc3545;
+}
+
+#hanoi-message.success {
+    color: #28a745;
+}
+
+/* Caesar's Cipher */
+#caesar-cipher-tool {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.cipher-controls, .cipher-output {
+    margin-bottom: 1rem;
+}
+
+.cipher-controls label, .cipher-output label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+#cipher-shift {
+    width: 60px;
+    margin-right: 10px;
+}
+
+#cipher-output-text {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+}
+
+.cipher-mode-switch {
+    display: inline-block;
+    margin-left: 15px;
+    vertical-align: middle;
+}
+
+.cipher-mode-switch label {
+    display: inline-block;
+    margin-right: 10px;
+    margin-left: 3px;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.cipher-mode-switch input[type="radio"] {
+    vertical-align: middle;
+    margin: 0;
+}
+
+.guidance-section {
+    background-color: #eef;
+    border: 1px solid #cce;
+    border-radius: 5px;
+    padding: 1rem;
+    margin: 1.5rem 0;
+    font-size: 0.95em;
+}
+
+.guidance-section h4 {
+    margin-top: 0;
+    color: #0056b3;
+}
+
+.guidance-section ol, .guidance-section ul {
+    padding-left: 20px;
+}
+
+details.guidance-section > summary {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.5em 0;
+    border-bottom: 1px dashed #cce;
+    list-style: inside;
+}
+
+details.guidance-section > summary h4 {
+    display: inline;
+    margin: 0;
+    font-weight: bold;
+    color: #0056b3;
+}
+
+details[open].guidance-section > summary {
+    border-bottom: 1px solid #cce;
+}
+
+.guidance-text {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+    border-radius: 4px;
+    color: #856404;
+    font-style: italic;
+    min-height: 1.5em;
+    text-align: center;
+}
+
+.highlight-hint {
+    box-shadow: 0 0 15px 5px rgba(255, 255, 0, 0.8);
+    border-color: #ff0 !important;
+}
+
+.highlight-hint-subtle {
+    box-shadow: 0 0 8px 2px rgba(0, 123, 255, 0.6);
+    border-color: #007bff !important;
+}
+
+#monty-controls .highlight-hint {
+    background-color: #ffc107;
+    color: #333;
+}
+
+.peg.highlight-hint {
+    background-color: rgba(255, 255, 0, 0.2);
+}
+
+.disk.highlight-hint {
+     box-shadow: 0 0 15px 5px rgba(255, 255, 0, 0.8), 0 2px 4px rgba(0,0,0,0.2);
+     transform: scale(1.1);
+}

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructional Presentation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Math Concepts</h1>
+    </header>
+
+    <main>
+        <section id="introduction">
+            <h2>Introduction</h2>
+            <p>Mathematics can sometimes feel like a tangled rope, full of twists and turns. But often, most of the complexity can be boiled down to simple patterns. This guide's purpose is to make these three key mathematical concepts more accessible and intuitive by exploring them visually. This is a more hands-on guide but will have in-depth explanations for each of the concepts as needed; here are the concepts, the Monty Hall problem (probability), the Tower of Hanoi (recursion), and Caesar's Cipher (cryptography).</p>
+            <p>This guide is designed for accessibility, so no prior knowledge is needed. The intended purpose is to learn through experimentation, but the strategies/information gives me insight into why things are and the best way of approaching each of these concepts.</p>
+            <p>Why engage with these concepts? Mathematics is far more than memorizing formulas; it's about developing your intuition. The Monty Hall problem challenges your sense of probability and decision-making. The Tower of Hanoi gives an example of recursion and gives some experience to other recursion problems. Caesar's Cipher provides a surface-level introduction to cryptography and encryption.</p>
+            <p>By the end of this guide, you won't just learn these concepts but also build confidence to approach other challenges/problems by breaking them down into manageable steps.</p>
+        </section>
+
+        <section id="preparation">
+            <h2>Preparation</h2>
+            <p>You will need:</p>
+            <ul>
+                <li>A web browser, probably already achieved.</li>
+                <li>Any interest in the concepts.</li>
+                <li>No prior math knowledge is required, but any background in computer science or cryptography will help.</li>
+            </ul>
+        </section>
+
+        <nav id="concepts">
+            <h2>Concepts</h2>
+            <ul>
+                <li><a href="#monty-hall">Monty Hall Problem</a></li>
+                <li><a href="#tower-of-hanoi">Tower of Hanoi</a></li>
+                <li><a href="#caesar-cipher">Caesar's Cipher</a></li>
+            </ul>
+        </nav>
+
+        <section id="monty-hall" class="concept-section">
+            <h2>Monty Hall Problem (Probability)</h2>
+            <p>The Monty Hall problem is a probability puzzle. Think of it as a game show you would see like "The Price is Right". There are three doors. Behind one door is a car and behind the other two are goats. You pick a door. The host will reveal one of the goats and then asks, "Do you want to switch your choice to the remaining closed door?" What should you do in this situation?</p>
+
+            <details class="guidance-section">
+                <summary><h4>Stats & Strategy (Click to Expand)</h4></summary>
+                <p>When you started with your choice, you had a 1/3 chance of getting the car, and the other two doors are 2/3 for the car. When the host opens a door with a goat, they are giving you information. You might think, now it's 50/50 so it doesn't matter whether I switch or not. But that's not true. That 2/3 probability doesn't disappear. The other two doors that you didn't pick still has a 2/3 chance of being a car, since you know one of them is a goat, it leaves you with that 2/3 chance of that remaining door to be the car. Therefore, switching your choice doubles your chances of winning the car (from 1/3 to 2/3).</p>
+                <p><strong>Strategy:</strong> Always switch. Single trials can vary, but after many trials, you will see the difference.</p>
+            </details>
+
+            <div id="monty-game">
+                <div id="monty-doors">
+                    <div class="door" id="door1" data-door="1">Door 1</div>
+                    <div class="door" id="door2" data-door="2">Door 2</div>
+                    <div class="door" id="door3" data-door="3">Door 3</div>
+                </div>
+                <div id="monty-message">Choose a door</div>
+                <div id="monty-controls">
+                    <button id="monty-start">Start New Game</button>
+                    <button id="monty-guide" style="display: none;">Guide Me</button>
+                </div>
+                <div id="monty-guidance-text" class="guidance-text"></div>
+                <div id="monty-stats">
+                    <h4>Stats (Switching vs. Staying)</h4>
+                    <p>Switch Wins: <span id="switch-wins">0</span> / <span id="switch-total">0</span> (<span id="switch-percent">0</span>%)</p>
+                    <p>Stay Wins: <span id="stay-wins">0</span> / <span id="stay-total">0</span> (<span id="stay-percent">0</span>%)</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="tower-of-hanoi" class="concept-section">
+            <h2>Tower of Hanoi (Recursion)</h2>
+            <p>The Tower of Hanoi is a concept that shows recursion. The goal is to move a stack of disks from a Source peg (A) to a Target peg (C), using a spare peg (B). There are two rules: 1) Only one disk can be moved at a time. 2) A larger disk can never be placed on top of a smaller disk.</p>
+
+            <details class="guidance-section">
+                <summary><h4>Recursion & Strategy (Click to Expand)</h4></summary>
+                <p>The key to solving the Tower of Hanoi is thinking recursively. The big problem (moving 'n' disks from Source A to Target C) is solved by repeating three core actions:</p>
+                <ol>
+                    <li><b>Get smaller disks out of the way:</b> Move the stack of 'n-1' disks from the Source peg to the Spare peg.</li>
+                    <li><b>Move the big disk:</b> Move the largest disk ('n') from the Source peg to the Target peg.</li>
+                    <li><b>Move smaller disks onto target:</b> Move the stack of 'n-1' disks from the Spare peg onto the Destination peg (on top of disk 'n').</li>
+                </ol>
+                <p>Notice how steps 1 and 3 are just smaller versions of the original problem. This self-repeating process is recursion.</p>
+                <p>Tip: Look for patterns, i.e look at disk 1 and how the automatic solver moves it. You can see that disk 1 moves in a cycle depending on whether or not the total amount of disks are odd or even.</p>
+                <p><strong>Strategy:</strong> Use the "Guide Me" button! It'll help with finding patterns, also consider using the "Solve Automatically" button. Break it down by disks. This is just many smaller versions of the original problem.</p>
+            </details>
+
+            <div id="hanoi-game">
+                <div id="hanoi-controls">
+                    <label for="hanoi-disks">Number of Disks (3-7):</label>
+                    <input type="number" id="hanoi-disks" name="hanoi-disks" min="3" max="7" value="3">
+                    <button id="hanoi-reset">Reset Game</button>
+                    <button id="hanoi-solve">Solve Automatically</button>
+                    <button id="hanoi-guide">Guide Me</button>
+                    <span id="hanoi-moves">Moves: 0</span> / <span id="hanoi-min-moves">Min: 7</span>
+                </div>
+                <div id="hanoi-towers">
+                    <div class="peg" id="peg-a" data-peg="A">
+                        <div class="peg-base"></div>
+                    </div>
+                    <div class="peg" id="peg-b" data-peg="B">
+                        <div class="peg-base"></div>
+                    </div>
+                    <div class="peg" id="peg-c" data-peg="C">
+                        <div class="peg-base"></div>
+                    </div>
+                </div>
+                <div id="hanoi-message"></div>
+                <div id="hanoi-guidance-text" class="guidance-text"></div>
+            </div>
+
+        </section>
+
+        <section id="caesar-cipher" class="concept-section">
+            <h2>Caesar's Cipher (Cryptography)</h2>
+            <p>Caesar's Cipher is one of the simplest and well known encryption techniques. It's a type of substitution cipher where each letter in the plaintext is shifted a certain number of places down the alphabet. For example, with a right shift of 4, A -> E, B -> F, etc. The same shift value is used for decryption, just in the opposite direction.</p>
+
+            <details class="guidance-section">
+                <summary><h4>How it Works (Click to Expand)</h4></summary>
+                <p>The cipher operates on the alphabet (A-Z). When encrypting with a shift 'n', each letter is replaced by the letter 'n' positions after it (wrapping around from Z to A if needed). For decryption, each letter is replaced by the letter 'n' positions before it (wrapping around from A to Z).</p>
+                <p><strong>Example (Shift 4):</strong><br>
+                   Plain:  HELLO<br>
+                   Cipher: LIPPS</p>
+                <p><strong>Weakness:</strong> There are only 25 shifts, Caesar's Cipher is easily decrypted by trying all shifts or by comparing common words.</p>
+            </details>
+
+            <div id="caesar-cipher-tool">
+                <div class="cipher-controls">
+                    <label for="cipher-input">Text:</label>
+                    <textarea id="cipher-input" rows="4"></textarea>
+                </div>
+                <div class="cipher-controls">
+                    <label for="cipher-shift">Shift Value (1-25):</label>
+                    <input type="number" id="cipher-shift" value="4" min="1" max="25">
+                    <span class="cipher-mode-switch">
+                        <input type="radio" id="cipher-mode-encrypt" name="cipher-mode" value="encrypt" checked>
+                        <label for="cipher-mode-encrypt">Encrypt</label>
+                        <input type="radio" id="cipher-mode-decrypt" name="cipher-mode" value="decrypt">
+                        <label for="cipher-mode-decrypt">Decrypt</label>
+                    </span>
+                </div>
+                <div class="cipher-output">
+                    <label for="cipher-output-text">Result:</label>
+                    <textarea id="cipher-output-text" rows="4"></textarea>
+                </div>
+            </div>
+        </section>
+
+        <section id="additional-resources">
+            <h2>Additional Resources</h2>
+            <p>Check out these resources:</p>
+            <ul>
+                <li><a href="https://en.wikipedia.org/wiki/Monty_Hall_problem" target="_blank">Wikipedia article on the Monty Hall problem</a></li>
+                <li><a href="https://en.wikipedia.org/wiki/Tower_of_Hanoi" target="_blank">Wikipedia article on the Tower of Hanoi</a></li>
+                <li><a href="https://en.wikipedia.org/wiki/Caesar_cipher" target="_blank">Wikipedia article on Caesar's Cipher</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>By: Anthony Tran</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
